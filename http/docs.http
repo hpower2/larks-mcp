@@ -1,0 +1,15 @@
+curl -X POST http://localhost:48080/mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'mcp-session-id: 04a439c3290d40a5817cfaba0a8e660d' \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "call-docs",
+    "method": "tools/call",
+    "params": {
+      "name": "docs",
+      "arguments": {
+        "url": "https://advancegroup.sg.larksuite.com/wiki/Q4YXw99N8iqk7Gkr8rOuuDNPsLd"
+      }
+    }
+  }'

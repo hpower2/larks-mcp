@@ -1,0 +1,16 @@
+curl -i -X POST http://localhost:48080/mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "init",
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2024-11-05",
+      "clientInfo": {
+        "name": "curl-client",
+        "version": "0.1.0"
+      },
+      "capabilities": {}
+    }
+  }'

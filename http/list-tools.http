@@ -1,0 +1,9 @@
+curl -X POST http://localhost:48080/mcp \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'mcp-session-id: 4e356b45d8e04b22a8b2fe64f5ecce5e' \
+  -d '{
+    "jsonrpc": "2.0",
+    "id": "tools",
+    "method": "tools/list"
+  }'

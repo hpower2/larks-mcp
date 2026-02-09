@@ -1,0 +1,28 @@
+services:
+  larks-mcp-python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: larks-mcp-python
+    restart: unless-stopped
+    ports:
+      - "${MCP_PORT:-48080}:48080"
+    volumes:
+      # Mount logs directory for persistence
+      - ./logs:/app/logs
+      # Optionally mount .env file (if you want to use .env instead of environment variables)
+      # - ./.env:/app/.env:ro
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:48080/health').read()"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    networks:
+      - larks-mcp-network
+
+networks:
+  larks-mcp-network:
+    driver: bridge
